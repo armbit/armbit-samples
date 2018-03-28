@@ -1,10 +1,10 @@
 {
   "name": "microbit-samples",
-  "version": "2.0.0-rc9",
-  "description": "The micro:bit runtime common abstraction with examples.",
+  "version": "5.0.0",
+  "description": "The armbit runtime common abstraction with examples.",
   "license": "MIT",
   "dependencies": {
-    "microbit": "ewarrior77/microbit"
+    "microbit": "armbit/armbit#~5.0.0"
   },
   "targetDependencies": {},
   "bin": "./source"
