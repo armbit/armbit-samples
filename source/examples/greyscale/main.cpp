@@ -36,19 +36,22 @@ int main()
     uBit.display.setDisplayMode(DISPLAY_MODE_GREYSCALE);
 
     // Draw a rainbow brightness effect across the display
-    int value = 1;
-
-    for(int j = 0; j < 5; j++)
-    {
-        for(int i = 0; i < 5; i++)
-        {
-            uBit.display.image.setPixelValue(i,j,value);
-            value += 10;
-        }
-    }
+    int value = 10;
    
     // Nothing else to do, so enter a power efficient sleep.    
     while(1)
-        uBit.sleep(10000);
+    {
+        for(int j = 0; j < 9; j++)
+        {
+            for(int i = 0; i < 6; i++)
+            {
+                uBit.display.image.setPixelValue(i,j,value);
+            }
+        }
+        uBit.sleep(2000);
+        value += 50;
+        if(value > 255)
+            value = 10;
+    }
 }
 

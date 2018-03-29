@@ -39,6 +39,12 @@ void onButton(MicroBitEvent e)
     if (e.source == MICROBIT_ID_BUTTON_B)
         uBit.serial.printf("BUTTON B: ");
 
+    if (e.source == MICROBIT_ID_BUTTON_C)
+        uBit.serial.printf("BUTTON C: ");
+
+    if (e.source == MICROBIT_ID_BUTTON_D)
+        uBit.serial.printf("BUTTON D: ");
+
     if (e.source == MICROBIT_ID_BUTTON_AB)
         uBit.serial.printf("BUTTON A+B: ");
 
@@ -81,6 +87,8 @@ int main()
     // Register to receive events when any buttons are clicked, including the A+B virtual button (both buttons at once).
     uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_EVT_ANY, onButton);
     uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_EVT_ANY, onButton);
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_C, MICROBIT_EVT_ANY, onButton);
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_D, MICROBIT_EVT_ANY, onButton);
     uBit.messageBus.listen(MICROBIT_ID_BUTTON_AB, MICROBIT_EVT_ANY, onButton);
 
     // Also register for touch events on P0, P1 and P2.

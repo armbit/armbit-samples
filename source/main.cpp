@@ -32,12 +32,26 @@ int main()
     // Initialise the micro:bit runtime.
     uBit.init();
 
-    // Insert your code here!
-    uBit.display.scroll("HELLO WORLD! :)");
+    // Enable per pixel rendering, with 256 level of brightness per pixel.
+    uBit.display.setDisplayMode(DISPLAY_MODE_GREYSCALE);
 
-    // If main exits, there may still be other fibers running or registered event handlers etc.
-    // Simply release this fiber, which will mean we enter the scheduler. Worse case, we then
-    // sit in the idle task forever, in a power efficient sleep.
-    release_fiber();
+    // Draw a rainbow brightness effect across the display
+    int value = 10;
+   
+    // Nothing else to do, so enter a power efficient sleep.    
+    while(1)
+    {
+        for(int j = 0; j < 9; j++)
+        {
+            for(int i = 0; i < 6; i++)
+            {
+                uBit.display.image.setPixelValue(i,j,value);
+            }
+        }
+        uBit.sleep(2000);
+        value += 50;
+        if(value > 255)
+            value = 10;
+    }
 }
 
